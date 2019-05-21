@@ -10,6 +10,9 @@ import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import com.songyuankun.cloud.common.ResponseUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +23,8 @@ import java.io.IOException;
 /**
  * @author songyuankun
  */
+
+@Api(tags = "上传接口")
 @RestController
 @RequestMapping("upload")
 public class UploadController {
@@ -62,7 +67,8 @@ public class UploadController {
     }
 
     @PostMapping("file")
-    public com.songyuankun.cloud.common.Response<String> upload(@RequestParam("file") MultipartFile file) {
+    @ApiOperation(value = "上传文件", notes = "上传文件")
+    public com.songyuankun.cloud.common.Response<String> upload(@ApiParam(name = "文件") @RequestParam("file") MultipartFile file) {
         Configuration cfg = new Configuration(Zone.zone0());
 
         UploadManager uploadManager = new UploadManager(cfg);
