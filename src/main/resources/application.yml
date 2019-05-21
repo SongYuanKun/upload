@@ -1,0 +1,18 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: upload
+qiniu:
+  ak: Gd1mJsdRLIhf6fsZb8w8Tjp9Ppir84oTnIQJxluW
+  sk: -9rQBQePo6D71u5hppWnQfdqjjp2Q-99r3_-6PCY
+  bucket: songyuankun
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://songyuankun.com:8761/eureka/
+  instance:
+    hostname: songyuankun.com
